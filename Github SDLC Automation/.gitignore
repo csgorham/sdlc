@@ -1,0 +1,12 @@
+# Bob workspace config — contains MCP tokens and local settings
+.bob/
+
+# Editor settings
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Bob-generated HTML artefacts (local session outputs, not source)
+finance-dashboard-*.html
