@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Environment — real values must never be committed
+.env
+# .env.example is intentionally committed (contains only safe defaults)
+
+# Test / coverage artefacts
+coverage/
+
+# Editor & OS
+.DS_Store
+*.local
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# TypeScript incremental build cache
+*.tsbuildinfo

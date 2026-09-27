@@ -1,0 +1,172 @@
+.card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: box-shadow 0.15s, transform 0.1s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: transparent;
+  border-radius: 10px 0 0 10px;
+}
+
+.card.primary::before {
+  background: var(--accent, #0f62fe);
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.symbolRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.symbol {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.badge {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.open   { background: #defbe6; color: #198038; }
+.pre    { background: #fff8e1; color: #c07600; }
+.closed { background: #f4f4f4; color: #6f6f6f; }
+
+.name {
+  font-size: 11px;
+  color: #8d8d8d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Price ── */
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: 600;
+  color: #161616;
+  letter-spacing: -0.01em;
+}
+
+.change {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.changePct {
+  font-weight: 400;
+}
+
+.positive { color: #198038; }
+.negative { color: #da1e28; }
+
+/* ── Day range ── */
+.rangeRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+}
+
+.rangeLabel { color: #8d8d8d; }
+.rangeValues { color: #393939; font-variant-numeric: tabular-nums; }
+
+/* ── 52-week bar ── */
+.weekRange {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.weekRangeBar {
+  height: 4px;
+  background: #e8e8e8;
+  border-radius: 2px;
+  position: relative;
+}
+
+.weekRangeThumb {
+  position: absolute;
+  top: -3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.weekRangeLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #8d8d8d;
+}
+
+.weekRangeCenter {
+  color: #525252;
+  font-weight: 500;
+}
+
+/* ── Footer stats ── */
+.footer {
+  display: flex;
+  gap: 14px;
+  padding-top: 8px;
+  border-top: 1px solid #f4f4f4;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.statLabel {
+  font-size: 10px;
+  color: #8d8d8d;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.statValue {
+  font-size: 12px;
+  font-weight: 600;
+  color: #393939;
+  font-variant-numeric: tabular-nums;
+}

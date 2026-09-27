@@ -1,0 +1,25 @@
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff1f1;
+  border: 1px solid #ffd7d9;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+
+.message {
+  font-size: 13px;
+  color: #da1e28;
+}
+
+.dismiss {
+  background: transparent;
+  border: none;
+  color: #da1e28;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0 4px;
+  line-height: 1;
+}

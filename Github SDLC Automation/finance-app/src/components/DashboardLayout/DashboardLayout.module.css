@@ -1,0 +1,52 @@
+.wrapper {
+  min-height: 100vh;
+  background: #f0f2f5;
+  font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+}
+
+.header {
+  background: #161616;
+  color: #ffffff;
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.headerInner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brandIbm {
+  font-size: 18px;
+  font-weight: 700;
+  color: #78a9ff;
+  letter-spacing: 0.04em;
+}
+
+.brandTitle {
+  font-size: 15px;
+  font-weight: 400;
+  color: #c6c6c6;
+}
+
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}

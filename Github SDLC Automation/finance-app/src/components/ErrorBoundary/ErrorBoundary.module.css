@@ -1,0 +1,34 @@
+.fallback {
+  background: #fff1f1;
+  border: 1px solid #ffd7d9;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #da1e28;
+  margin: 0 0 8px;
+}
+
+.message {
+  font-size: 13px;
+  color: #525252;
+  margin: 0 0 16px;
+}
+
+.retry {
+  background: #da1e28;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 18px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.retry:hover {
+  background: #b81922;
+}

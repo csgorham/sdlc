@@ -1,0 +1,89 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ── Header ── */
+.header { display: flex; align-items: flex-start; justify-content: space-between; }
+.title { font-size: 18px; font-weight: 600; color: #161616; margin: 0 0 4px; }
+.sub { font-size: 12px; color: #8d8d8d; margin: 0; }
+
+/* ── Bar card ── */
+.barCard {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px 24px 12px;
+}
+
+.panelTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #161616;
+  margin: 0 0 16px;
+}
+
+/* ── Stats table ── */
+.tableWrap {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.tableTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #161616;
+  margin: 0 0 14px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 540px;
+}
+
+.table th {
+  text-align: left;
+  padding: 0 12px 10px 0;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8d8d8d;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.table td {
+  padding: 10px 12px 10px 0;
+  border-bottom: 1px solid #f8f8f8;
+  vertical-align: middle;
+}
+
+.table tbody tr:last-child td { border-bottom: none; }
+.ibmRow td { background: #f6f9ff; }
+.numCol { text-align: right; }
+
+.rankCell { font-size: 12px; color: #8d8d8d; font-weight: 600; width: 28px; }
+
+.sym { font-weight: 700; font-size: 13px; margin-right: 6px; }
+.symName { font-size: 11px; color: #8d8d8d; }
+
+.mono { font-variant-numeric: tabular-nums; }
+.highCol { color: #198038; }
+.lowCol  { color: #da1e28; }
+
+.retBadge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pos { color: #198038; font-weight: 600; }
+.neg { color: #da1e28; font-weight: 600; }
