@@ -15,6 +15,9 @@ jobs:
   validate:
     name: Install, lint, test, build
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: finance-app
 
     steps:
       - name: Checkout repository
@@ -25,18 +28,19 @@ jobs:
         with:
           node-version: 20
           cache: npm
+          cache-dependency-path: finance-app/package-lock.json
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Lint
-        run: npm run lint --if-present
+        run: npm run lint
 
       - name: Test
-        run: npm test --if-present -- --runInBand
+        run: npm test
 
       - name: Build
-        run: npm run build --if-present
+        run: npm run build
 
   bob-feature-flow:
     name: Bob-assisted feature workflow guidance
