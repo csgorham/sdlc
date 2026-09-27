@@ -1,6 +1,8 @@
 import type { TimeWindow } from '@/types/finance';
 import { useDashboardStore } from '@/store/dashboardStore';
 import { TimeWindowTabs } from '@/components/TimeWindowTabs/TimeWindowTabs';
+import { CompanySearch } from '@/components/CompanySearch/CompanySearch';
+import { FocusedCompanyPanel } from '@/components/FocusedCompanyPanel/FocusedCompanyPanel';
 import styles from './DashboardLayout.module.css';
 
 interface DashboardLayoutProps {
@@ -23,9 +25,15 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
             active={activeWindow}
             onChange={(w: TimeWindow) => setWindow(w)}
           />
+          {/* Company search — right side of header; additive, no changes to tabs or brand */}
+          <CompanySearch />
         </div>
       </header>
-      <main className={styles.main}>{children}</main>
+      <main className={styles.main}>
+        {children}
+        {/* Focused panel renders below the active view; returns null when no symbol selected */}
+        <FocusedCompanyPanel />
+      </main>
     </div>
   );
 }

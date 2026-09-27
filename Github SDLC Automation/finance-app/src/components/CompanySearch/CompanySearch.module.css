@@ -1,0 +1,89 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  /* Prevent the form itself from stretching the header */
+  align-items: flex-end;
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.input {
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid #4d4d4d;
+  border-radius: 4px;
+  background: #262626;
+  color: #f4f4f4;
+  font-size: 13px;
+  font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+  width: 130px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.input::placeholder {
+  color: #6f6f6f;
+}
+
+.input:focus {
+  border-color: #78a9ff;
+}
+
+.inputError {
+  border-color: #ff8389;
+}
+
+.searchBtn {
+  height: 32px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 4px;
+  background: #0f62fe;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.searchBtn:hover:not(:disabled) {
+  background: #0353e9;
+}
+
+.searchBtn:disabled {
+  background: #4d4d4d;
+  cursor: default;
+}
+
+.clearBtn {
+  height: 32px;
+  width: 32px;
+  padding: 0;
+  border: 1px solid #4d4d4d;
+  border-radius: 4px;
+  background: transparent;
+  color: #c6c6c6;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+
+.clearBtn:hover {
+  background: #3d3d3d;
+  color: #f4f4f4;
+}
+
+.errorMsg {
+  font-size: 11px;
+  color: #ff8389;
+  white-space: nowrap;
+}

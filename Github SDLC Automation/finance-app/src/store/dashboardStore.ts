@@ -6,6 +6,10 @@
  *
  * Components read slices via selectors and never call fetchAll() directly —
  * that responsibility belongs to the useMarketData hook.
+ *
+ * The "focused" slice is a separate, independent state slice that holds data
+ * for a single user-selected symbol. It never modifies symbols[] or data{},
+ * so all three existing dashboard views remain completely unaffected.
  */
 
 import { create } from 'zustand';
@@ -24,11 +28,24 @@ export interface DashboardState {
   loading: boolean;
   error: string | null;
 
+  // ── Focused-symbol state (user-selected, independent of symbols[]) ─────────
+  focusedSymbol: string | null;
+  focusedData: MarketData | null;
+  focusedLoading: boolean;
+  focusedError: string | null;
+
   // ── Actions ────────────────────────────────────────────────────────────────
   setWindow: (window: TimeWindow) => void;
   setSymbols: (symbols: string[]) => void;
   clearError: () => void;
   fetchAll: () => Promise<void>;
+
+  /**
+   * Fetch data for a single user-chosen ticker and store it in the focused
+   * slice.  Pass null to clear the focused panel without triggering a fetch.
+   * Does not touch symbols[], data{}, loading, or error.
+   */
+  setFocusedSymbol: (symbol: string | null) => Promise<void>;
 }
 
 export const useDashboardStore = create<DashboardState>((set, get) => ({
@@ -37,6 +54,12 @@ export const useDashboardStore = create<DashboardState>((set, get) => ({
   data: {},
   loading: false,
   error: null,
+
+  // Focused slice initial state
+  focusedSymbol: null,
+  focusedData: null,
+  focusedLoading: false,
+  focusedError: null,
 
   setWindow(window) {
     set({ activeWindow: window });
@@ -93,6 +116,33 @@ export const useDashboardStore = create<DashboardState>((set, get) => ({
           ? err.message
           : 'An unexpected error occurred.';
       set({ loading: false, error: message });
+    }
+  },
+
+  async setFocusedSymbol(symbol) {
+    if (!symbol) {
+      set({ focusedSymbol: null, focusedData: null, focusedLoading: false, focusedError: null });
+      return;
+    }
+
+    set({ focusedSymbol: symbol, focusedLoading: true, focusedError: null, focusedData: null });
+
+    try {
+      const { activeWindow } = get();
+      const [quote, history] = await Promise.all([
+        financeService.getQuote(symbol),
+        financeService.getHistory(symbol, activeWindow),
+      ]);
+      set({
+        focusedData: { quote, history, lastUpdated: new Date().toISOString() },
+        focusedLoading: false,
+      });
+    } catch (err) {
+      const message =
+        err instanceof FinanceError
+          ? err.message
+          : 'Symbol not found or unavailable.';
+      set({ focusedLoading: false, focusedError: message });
     }
   },
 }));
