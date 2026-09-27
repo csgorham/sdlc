@@ -26,19 +26,19 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        working-directory: finance-app
+        working-directory: 'Github SDLC Automation/finance-app'
         run: npm ci
 
       - name: Lint
-        working-directory: finance-app
+        working-directory: 'Github SDLC Automation/finance-app'
         run: npm run lint
 
       - name: Test
-        working-directory: finance-app
+        working-directory: 'Github SDLC Automation/finance-app'
         run: npm test
 
       - name: Build
-        working-directory: finance-app
+        working-directory: 'Github SDLC Automation/finance-app'
         run: npm run build
 
   bob-feature-flow:
